@@ -4,7 +4,7 @@ Funcmatic plugin that creates and manages a MongoDB connection
 ## Install
 
 ```
-$> npm install @funcmaticjs/mongodb-plugin
+$> npm install --save @funcmaticjs/mongodb-plugin
 ```
 
 ## Use
