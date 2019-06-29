@@ -102,4 +102,21 @@ describe('Error Handler', () => {
   })
 })
 
+describe('createClient', () => {
+  let plugin = null 
+  beforeEach(() => {
+    plugin = new MongoDBPlugin()
+  })
+  afterEach(async () => {
+    await plugin.teardown()
+  })
+  it ('should expose createClient for unit testing', async () => {
+    let client = await plugin.createClient(process.env.FUNC_MONGODB_URI)
+    expect(client.isConnected()).toBe(true)
+    expect(client.db()).toBeTruthy()
+    await client.close()
+    expect(client.isConnected()).toBe(false)
+  })
+})
+
 function noop() { }
