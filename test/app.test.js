@@ -26,4 +26,10 @@ describe('Funcmatic Plugin', () => {
     })
     await func.invokeStart(ctx)
   })
+  it ('should noop if ctx.state.mongodb is already defined', async () => {
+    ctx.state = { mongodb: true }
+    func.start(async (ctx) => {
+      expect(ctx.state.mongodb).toBe(true)
+    })
+  })
 })

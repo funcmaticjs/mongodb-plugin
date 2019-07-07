@@ -25,4 +25,4 @@ The following variables must exist in `ctx.env` during the env handler:
 
 ## Side Effects
 
-- `ctx.state.mongodb`: The MongoDB [DB instance](https://mongodb.github.io/node-mongodb-native/3.2/api/Db.html).
+- `ctx.state.mongodb`: The MongoDB [DB instance](https://mongodb.github.io/node-mongodb-native/3.2/api/Db.html). Will NOOP if ctx.state.mongodb is already defined in `ctx.state` before this middleware runs. This property is useful if you want to mock `ctx.state.mongodb`. 

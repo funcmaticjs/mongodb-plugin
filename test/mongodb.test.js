@@ -70,6 +70,7 @@ describe('Request Handler', () => {
     await plugin.start(ctx, noop)
     await plugin.client.close() // manually close it
     expect(plugin.client.isConnected()).toBeFalsy()
+    ctx.state = { }
     await plugin.request(ctx, noop)
     expect(ctx.state.mongodb).toBeTruthy()
     expect(ctx.state.mongodb.client.isConnected()).toBeTruthy()
